@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+
+	{% block body %}
+
+	<div class="container">
+
+		<div class="navbar navbar-inverse">
+		  <div class="navbar-inner">
+		    <a class="brand" href="#">Personas</a>
+		    <ul class="nav">
+		      <li class="active"><a href="#">Home</a></li>
+		      <li><a href="#">Link</a></li>
+		      <li><a href="#">Link</a></li>
+		    </ul>
+		  </div>
+		</div>
+
+
+	</div>
+
+
+	{% endblock body%}
+
+
+	{% block script %} 
+	<script data-main="{{STATIC_URL}}app/js/config" src="{{STATIC_URL}}app/js/libs/require.js"></script>
+	{% endblock script%}
