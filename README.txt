@@ -1,0 +1,1 @@
+Aplicación de prueba usando Django y Tastypie con Backbone para generar una Interfaz Ajax
