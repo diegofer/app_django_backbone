@@ -3,7 +3,7 @@ define([
 	'lodash',
 	'backbone',
 	'tastypie',
-	'models/EmpleadoModel'
+	'js/models/EmpleadoModel'
 ], 
 
 function($, _, Backbone, tastypie, EmpleadoModel) {

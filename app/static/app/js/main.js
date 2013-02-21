@@ -3,10 +3,10 @@ require([
 	'lodash',
 	'backbone',
 	'tastypie',
-	'views/HomeView',
-	'views/EmpleadoListView',
-	'models/EmpleadoModel',
-	'models/EmpleadoCollection'
+	'js/views/HomeView',
+	'js/views/EmpleadoListView',
+	'js/models/EmpleadoModel',
+	'js/models/EmpleadoCollection'
 ], 
 
 function($, _, Backbone, tastypie, HomeView, EmpleadoListView, EmpleadoModel, EmpleadoCollection) {
@@ -26,7 +26,7 @@ function($, _, Backbone, tastypie, HomeView, EmpleadoListView, EmpleadoModel, Em
 
     	initialize: function() {
     		console.log('inicio el router');
-    		$('#contenido').html(new HomeView().render());
+    		//$('#contenido').html(new HomeView().render());
     	},
 
     	routes: {
@@ -36,7 +36,10 @@ function($, _, Backbone, tastypie, HomeView, EmpleadoListView, EmpleadoModel, Em
     	},
 
     	listaEmpleados: function() {
-    		this.before();
+    		this.before(function() {
+
+    			this.showView('#contenido', new HomeView());
+    		});
     	},
 
     	nuevoEmpleado: function() {
@@ -46,6 +49,15 @@ function($, _, Backbone, tastypie, HomeView, EmpleadoListView, EmpleadoModel, Em
     	empleado: function() {
 
     	},
+
+    	showView: function(selector, view) {
+            if (this.currentView) this.currentView.close();
+
+            $(selector).html(view.render());
+            this.currentView = view;
+
+            return view;
+        },
 
     	before: function(callback) {
     		if (this.empleadoList) {
@@ -77,6 +89,15 @@ function($, _, Backbone, tastypie, HomeView, EmpleadoListView, EmpleadoModel, Em
 
 
     });
+
+	$(document).ajaxStart(function(){
+		console.log('empezo ajax');
+        $('#spiner').show();
+    }).ajaxStop(function(){
+    	console.log('termino ajax');
+        $('#spiner').hide();
+    });    
+
 
     window.app = new AppRouter();
     Backbone.history.start();

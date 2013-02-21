@@ -8,7 +8,7 @@ define([
 
 function($, _, Backbone, tastypie, home_tpl) {
    
-    var HomeVew = Backbone.View.extend({
+    var HomeView = Backbone.View.extend({
 
     	initialize: function() {
     		console.log('inicio vista HomeVew');
@@ -22,5 +22,5 @@ function($, _, Backbone, tastypie, home_tpl) {
 
     });
    
-    return HomeVew; 
+    return HomeView; 
 });
