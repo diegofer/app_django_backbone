@@ -10,7 +10,14 @@ function($, _, Backbone, tastypie) {
     var EmpleadoModel = Backbone.Model.extend({
 
     	urlRoot: "/api/v1/empleado/",
-    	model: EmpleadoModel
+    	
+    	defaults: {
+    		"id": "?",
+    		"nombre": "",
+    		"apellido": "",
+    		"profesion": "",
+    		"telefono": "",
+    	}
 
 
     });

@@ -9,9 +9,9 @@
 
 		<div class="navbar navbar-inverse">
 		  <div class="navbar-inner">
-		    <a class="brand" href="#">Personas</a>
+		    <a class="brand" href="#">Empresa</a>
 		    <ul class="nav">
-		      <li class="active"><a href="#">Home</a></li>
+		      <li class="active"><a href="#"> <i class="icon-home"></i></a></li>
 		      <li id="spiner">
 		      	<a href="">
 		      		<i class=" icon-cog icon-spin icon-white"></i>
@@ -25,10 +25,15 @@
 		<div class="row-fluid">
 
 			<div class="span4">
-				<div id="lista-content">
 
-
+				<div class="navbar">
+					<div id="barra" class="navbar-inner">
+						<h4 class="pull-left">Empleados</h4>
+						<a href="#empleados/nuevo" class="btn btn-inverse pull-right"><i class="icon-user"> </i></a>	
+					</div>
 				</div>
+
+				<div id="lista-content"></div>
 			</div>
 
 			<div class="span8">
@@ -46,17 +51,17 @@
 
 
 	{% block script %} 
-	<!--<script data-main="{{STATIC_URL}}app/js/config" src="{{STATIC_URL}}app/js/libs/require.js"></script>-->
+	<script data-main="{{STATIC_URL}}app/js/config" src="{{STATIC_URL}}app/js/libs/require.js"></script>
 
 	<script src="{{STATIC_URL}}app/js/libs/require.js"></script>
-	<script>
+	<!--<script>
             require.config({
                 paths: {
                     "main": "{{STATIC_URL}}app/js/main-built"
                 }
             });
             require(["main"]);
-    </script>
+    </script>-->
 
 
 	{% endblock script%}
