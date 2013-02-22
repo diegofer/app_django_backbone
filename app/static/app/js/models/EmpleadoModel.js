@@ -12,7 +12,6 @@ function($, _, Backbone, tastypie) {
     	urlRoot: "/api/v1/empleado/",
     	
     	defaults: {
-    		"id": "?",
     		"nombre": "",
     		"apellido": "",
     		"profesion": "",

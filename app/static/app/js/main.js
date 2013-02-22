@@ -48,12 +48,9 @@ function($, _, Backbone, tastypie, HomeView, EmpleadoView, EmpleadoListView, Emp
     		this.before(function() {
     			this.showView('#contenido', new EmpleadoView({
     				model: new EmpleadoModel(),
-    				modo: 'crear'
+    				modo: 'nuevo'
     			}));
     		});
-
-    		
-
     	},
 
     	empleadoDetalle: function(path) {
