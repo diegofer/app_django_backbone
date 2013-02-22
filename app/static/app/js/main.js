@@ -4,12 +4,13 @@ require([
 	'backbone',
 	'tastypie',
 	'js/views/HomeView',
+	'js/views/EmpleadoView',
 	'js/views/EmpleadoListView',
 	'js/models/EmpleadoModel',
 	'js/models/EmpleadoCollection'
 ], 
 
-function($, _, Backbone, tastypie, HomeView, EmpleadoListView, EmpleadoModel, EmpleadoCollection) {
+function($, _, Backbone, tastypie, HomeView, EmpleadoView, EmpleadoListView, EmpleadoModel, EmpleadoCollection) {
 
 
 	// Este codigo, libera la memoria al cambiar de vista...
@@ -31,8 +32,8 @@ function($, _, Backbone, tastypie, HomeView, EmpleadoListView, EmpleadoModel, Em
 
     	routes: {
     		""                  : "listaEmpleados",
-    		"empleados/nuevo"   : "nuevoEmpleado",
-    		"empleados/*path"   : "empleado"
+    		"empleados/nuevo"   : "empleadoNuevo",
+    		"empleados/*path"   : "empleadoDetalle"
     	},
 
     	listaEmpleados: function() {
@@ -42,12 +43,22 @@ function($, _, Backbone, tastypie, HomeView, EmpleadoListView, EmpleadoModel, Em
     		});
     	},
 
-    	nuevoEmpleado: function() {
+    	empleadoNuevo: function() {
 
+    		this.before(function() {
+    			this.showView('#contenido', new EmpleadoView({
+    				model: new EmpleadoModel(),
+    				modo: 'nuevo'
+    			}));
+    		});
     	},
 
-    	empleado: function() {
+    	empleadoDetalle: function(path) {
 
+    		this.before(function() {
+    			var empleado = this.empleadoCollection.get('/'+path);
+    			this.showView('#contenido', new EmpleadoView({model:empleado}) );
+    		})
     	},
 
     	showView: function(selector, view) {
@@ -60,7 +71,7 @@ function($, _, Backbone, tastypie, HomeView, EmpleadoListView, EmpleadoModel, Em
         },
 
     	before: function(callback) {
-    		if (this.empleadoList) {
+    		if (this.empleadoCollection) {
     			if (callback) callback.call(this);
     		}
     		else {
