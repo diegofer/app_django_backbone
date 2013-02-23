@@ -2,7 +2,9 @@
 
  Es una implementacion en [Django](https://www.djangoproject.com/) 1.4.3 con [Tastypie](http://django-tastypie.readthedocs.org/en/latest/index.html) y [Backbone](http://backbonejs.org/).
 
- La aplicacion esta modularizada con [RequireJS](http://requirejs.org/)
+ La aplicacion esta modularizada y optimizada con [RequireJS](http://requirejs.org/)
+
+ Se usa [Bootstrap](http://twitter.github.com/bootstrap/) para la Ui y [jquery](http://jquery.com/)
 
 ## Proyectos similares:
 
