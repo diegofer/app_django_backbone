@@ -3,10 +3,11 @@ define([
 	'lodash',
 	'backbone',
 	'tastypie',
+    'bootstrap',
 	'text!tpl/empleado_tpl.html'
 ], 
 
-function($, _, Backbone, tastypie, empleado_tpl) {
+function($, _, Backbone, tastypie, bootstrap, empleado_tpl) {
 
    
     var EmpleadoView = Backbone.View.extend({
@@ -28,8 +29,9 @@ function($, _, Backbone, tastypie, empleado_tpl) {
     	},
 
         events: {
-            "click #guardar":    "guardarEmpleado",
-            "click #editar":     "editarEmpleado",
+            "click #guardar"  :    "guardarEmpleado",
+            "click #editar"   :    "editarEmpleado",
+            "click #eliminar" :    "eliminarEmpleado"
         },
 
         guardarEmpleado: function() {
@@ -62,6 +64,26 @@ function($, _, Backbone, tastypie, empleado_tpl) {
         alCambiar: function() {
             this.modo = 'normal';
             this.render();
+        },
+
+        eliminarEmpleado: function() {
+            $('#confirmacion').modal('hide');
+
+            this.model.destroy({
+                complete: function(objeto, exito){   
+                    switch (objeto.status) { 
+                        case 204: //Tastypie envia un codigo 204 cuando se elimina un modelo..
+                            $('#respuesta').modal('show');
+                            $('#respuesta').on('hidden', function () {
+                                //app.navigate('', true); 
+                                window.history.back();
+                            });     
+                            break;
+                        default: 
+                            console.log( objeto.status );                     
+                    } 
+                }
+            });
         },
 
 
