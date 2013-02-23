@@ -51,11 +51,64 @@
 				<button id="editar" class="btn btn-primary" type="button"><i class="icon-edit"></i></button>
 			</div>
 			<div class="btn-group">
-				<button id="eliminar" class="btn btn-danger" type="button"><i class="icon-trash"> </i></button>
+				<button  class="btn btn-danger" type="button" data-toggle="modal" data-target="#confirmacion"><i class="icon-trash"> </i></button>
 			</div>
+
 		</div>	
 
 	</div>
 
 
 </div>
+
+
+
+<div id="confirmacion" class="modal hide fade">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>Confirmar</h3>
+	</div>
+	<div class="modal-body">
+
+		<div class="row-fluid">
+			<div class="span3">
+				<span class="label label-warning"><i class="icon-warning-sign icon-4x"></i></span>
+			</div>
+			<div class="span9">
+				<p>Esta seguro que desea eliminar <strong><%= nombre %></strong> </p>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="modal-footer">
+		<a  class="btn" data-dismiss="modal" aria-hidden="true">No</a>
+		<a id="eliminar" class="btn btn-primary" >Si</a>
+	</div>
+
+</div>	
+
+
+<div id="respuesta" class="modal hide fade">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>Mensaje</h3>
+	</div>
+	<div class="modal-body">
+
+		<div class="row-fluid">
+			<div class="span3">
+				<span class="label label-success"><i class="icon-ok-sign icon-4x"></i></span>
+			</div>
+			<div class="span9">
+				<p>Operacion realizada exitozamente</p>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="modal-footer">
+		<a  class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Ok</a>
+	</div>
+
+</div>	
