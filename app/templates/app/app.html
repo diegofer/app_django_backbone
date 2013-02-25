@@ -51,17 +51,17 @@
 
 
 	{% block script %} 
-	<script data-main="{{STATIC_URL}}app/js/config" src="{{STATIC_URL}}app/js/libs/require.js"></script>
+	<!--<script data-main="{{STATIC_URL}}app/js/config" src="{{STATIC_URL}}app/js/libs/require.js"></script>-->
 
 	<script src="{{STATIC_URL}}app/js/libs/require.js"></script>
-	<!--<script>
+	<script>
             require.config({
                 paths: {
                     "main": "{{STATIC_URL}}app/js/main-built"
                 }
             });
             require(["main"]);
-    </script>-->
+    </script>
 
 
 	{% endblock script%}
